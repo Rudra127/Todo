@@ -4,6 +4,7 @@ import { connectToMongo } from "./db.js";
 const app = express();
 import cors from "cors";
 import registerUsers from "./Auth/Register.js";
+import LoginUsers from "./Auth/login.js";
 
 dotenvConfig();
 // conncted to db
@@ -24,6 +25,8 @@ app.get("/", (req, res) => {
   res.json({ massage: "Welcome to the TODO LIST Api Server!!" });
 });
 app.post("/Register", registerUsers);
+app.post("/Login", LoginUsers);
+// app.post("/CreateTODO", CreateTODO);
 
 app.listen(port, () => {
   console.log(`TODO LIST app listening on port http://localhost:${port}`);
