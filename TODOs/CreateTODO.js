@@ -8,6 +8,10 @@ const CreateTODO = async (req, res) => {
 
     if (createdTODO) {
       res.status(200).json({ message: "TODO CREATED.", TODO: createdTODO });
+    } else {
+      res
+        .status(403)
+        .json({ message: "TODO was not CREATED.", TODO: todoData });
     }
   } catch (error) {
     console.error("Error creating TODO:", error);
