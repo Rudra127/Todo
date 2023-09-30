@@ -5,9 +5,11 @@ const app = express();
 import cors from "cors";
 import registerUsers from "./Auth/Register.js";
 import LoginUsers from "./Auth/login.js";
-import CreateTODO from "./TODOs/createTodo.js";
 import todoDelete from "./TODOs/DeleteTODO.js";
 import todoUpdate from "./TODOs/updateTodo.js";
+import todoretrive from "./TODOs/retriveTodo.js";
+import todoDetails from "./TODOs/createTodo.js";
+import todoretrieve from "./TODOs/retriveTodo.js";
 
 
 dotenvConfig();
@@ -35,11 +37,13 @@ app.post("/Register", registerUsers);
 app.post("/Login", LoginUsers);
 
 //TODO Endpoints
-app.post("/CreateTODO", CreateTODO);
+app.post("/CreateTODO", todoDetails );
 
 app.post("/deleteTodo", todoDelete);
 
 app.post("/updateTodo", todoUpdate);
+
+app.get("/retriveTodo", todoretrieve);
 
 app.listen(port, () => {
   console.log(`TODO LIST app listening on port http://localhost:${port}`);
