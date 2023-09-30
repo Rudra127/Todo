@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 
 const todoSchema = mongoose.Schema({
+  todono :{
+    type:Number,
+    required:true,
+    unique:true
+  },
   title: {
     type: String,
     required: true,

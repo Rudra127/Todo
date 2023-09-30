@@ -6,6 +6,7 @@ import cors from "cors";
 import registerUsers from "./Auth/Register.js";
 import LoginUsers from "./Auth/login.js";
 import CreateTODO from "./TODOs/CreateTODO.js";
+import todoDelete from "./TODOs/DeleteTODO.js";
 
 dotenvConfig();
 // conncted to db
@@ -33,6 +34,8 @@ app.post("/Login", LoginUsers);
 
 //TODO Endpoints
 app.post("/CreateTODO", CreateTODO);
+
+app.post("/deleteTodo", todoDelete);
 
 app.listen(port, () => {
   console.log(`TODO LIST app listening on port http://localhost:${port}`);
