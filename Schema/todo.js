@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const todoSchema = mongoose.Schema({
-  todono :{
+  todoNo :{
     type:Number,
     required:true,
     unique:true
