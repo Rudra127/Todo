@@ -8,8 +8,8 @@ import LoginUsers from "./Auth/login.js";
 import todoDelete from "./TODOs/DeleteTODO.js";
 import todoUpdate from "./TODOs/updateTodo.js";
 import todoDetails from "./TODOs/createTodo.js";
+import getTodoById from "./TODOs/getTodoById.js";
 import getTodo from "./TODOs/getTodo.js";
-
 
 dotenvConfig();
 // conncted to db
@@ -36,13 +36,17 @@ app.post("/Register", registerUsers);
 app.post("/Login", LoginUsers);
 
 //TODO Endpoints
-app.post("/CreateTODO", todoDetails );
+app.post("/CreateTODO", todoDetails);
 
 app.post("/deleteTodo", todoDelete);
 
 app.post("/updateTodo", todoUpdate);
-//TODO get Endpoints.
-app.get("/getTodo", getTodo );
+
+//get TODO.
+app.get("/getTodos", getTodo);
+
+//get TODO by id Endpoints.
+app.get("/getTodoById", getTodoById);
 
 app.listen(port, () => {
   console.log(`TODO LIST app listening on port http://localhost:${port}`);
