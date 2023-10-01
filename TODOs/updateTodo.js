@@ -10,7 +10,6 @@ const todoUpdate = async (req, res) => {
     );
 
     if (updatedTodo) {
-      // Check if any document was modified
     res.json({ message: 'Todo updated successfully', todo: updatedTodo });
     }
 else{

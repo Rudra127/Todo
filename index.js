@@ -7,9 +7,8 @@ import registerUsers from "./Auth/Register.js";
 import LoginUsers from "./Auth/login.js";
 import todoDelete from "./TODOs/DeleteTODO.js";
 import todoUpdate from "./TODOs/updateTodo.js";
-import todoretrive from "./TODOs/retriveTodo.js";
 import todoDetails from "./TODOs/createTodo.js";
-import todoretrieve from "./TODOs/retriveTodo.js";
+import getTodo from "./TODOs/getTodo.js";
 
 
 dotenvConfig();
@@ -43,7 +42,7 @@ app.post("/deleteTodo", todoDelete);
 
 app.post("/updateTodo", todoUpdate);
 
-app.get("/retriveTodo", todoretrieve);
+app.get("/getTodo", getTodo );
 
 app.listen(port, () => {
   console.log(`TODO LIST app listening on port http://localhost:${port}`);
