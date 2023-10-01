@@ -2,23 +2,33 @@ import todo from "../Schema/todo.js";
 
 const todoUpdate = async (req, res) => {
   console.log(req.body);
-  const { todoNo, title, desc } = req.body;
-  try {
-    const updatedTodo = await todo.updateOne (
-      todoNo, 
-      { title, desc }
-    );
+  const tododata = req.body;
+  try{
+  if(tododata){
+    const findTodo =  await todo.findOne({
+      todoNo: tododata.todoNo 
 
-    if (updatedTodo) {
-    res.json({ message: 'Todo updated successfully', todo: updatedTodo });
+    });
+    if(findTodo){
+      const updatetodo = await todo.updateOne(
+      {todoNo: tododata.todoNO},
+      tododata
+      );
+    if(updatetodo){
+      res.json({message:"todo has been updated",updatetodo});
     }
-else{
-    return res.status(404).json({ error: 'Todo not found' });
-}
-  } catch (err) {
-    console.error("Database error:", err);
-    res.status(500).json({ error: 'An error occurred while updating the todo' });
+    else{
+        res.status(404).json("todo not found");
+    }}
+    else {
+      res.status(500).json(`please add the Client in body`);
+    }
   }
+}
+   catch (err) {
+    res.status(500).json({ error: err.message });
+    console.log(err);
+    }
+  
 };
-
 export default todoUpdate;
