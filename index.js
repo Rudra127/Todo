@@ -41,7 +41,7 @@ app.post("/CreateTODO", todoDetails );
 app.post("/deleteTodo", todoDelete);
 
 app.post("/updateTodo", todoUpdate);
-
+//TODO get Endpoints.
 app.get("/getTodo", getTodo );
 
 app.listen(port, () => {
